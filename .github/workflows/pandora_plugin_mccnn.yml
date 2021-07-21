@@ -22,11 +22,6 @@ jobs:
     - name: Install mc-cnn
       run: |
         pip install .
-    - name: Test with pytest
-      run: |
-        pytest --junitxml=pytest-report.xml --cov-config=.coveragerc --cov-report xml --cov
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
     - name: Create source distrubition
       if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
       run: |
